@@ -1,6 +1,7 @@
 package util;
 
-import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.Set;
 import java.util.Arrays;
 
 public class Calculator {
@@ -10,10 +11,8 @@ public class Calculator {
         String[] words = clearText.split("\\s+");
 
         //Remove doublicates
-        HashSet<String> set = new HashSet<>();
-        for (String word : words) {
-            set.add(word);
-        }
+        Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        set.addAll(Arrays.asList(words));
 
         //Sort
         String[] order = set.toArray(new String[0]);
